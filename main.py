@@ -49,18 +49,18 @@ def send_webhook_message(webhook_url, message, count, delay):
         thread = threading.Thread(target=send_message, args=(webhook_url, message, i))
         threads.append(thread)
         thread.start()
-        time.sleep(delay / 1000)  # Apply delay here correctly
+        time.sleep(delay / 1000)  
 
     for thread in threads:
         thread.join()
     
     input(Colorate.Horizontal(Colors.blue_to_cyan, "\nAll messages sent. Press Enter to continue..."))
-    clear_screen()  # Clears everything
-    main()  # Restart the script
+    clear_screen()  
+    main()  
 
 def main():
     while True:
-        clear_screen()  # Ensure a fresh screen each time
+        clear_screen()  
         print_banner()
         webhook_url = input(Colorate.Horizontal(Colors.blue_to_cyan, "Enter Webhook > "))
         message = input(Colorate.Horizontal(Colors.blue_to_cyan, "Enter Message > "))
